@@ -54,7 +54,7 @@ export default async function AdminPage() {
 
       <div className="mt-6 grid gap-6 md:grid-cols-3">
         <Link href="/admin/leads" className="block">
-          <Card className="h-full transition hover:border-brand">
+          <Card className="h-full transition-all duration-200 hover:border-brand hover:shadow-md">
             <h2 className="text-lg font-semibold">Leads</h2>
             <p className="mt-2 text-sm text-muted">
               Veja solicitações recebidas, registre contatos e acompanhe o
@@ -63,7 +63,7 @@ export default async function AdminPage() {
           </Card>
         </Link>
         <Link href="/admin/conteudo" className="block">
-          <Card className="h-full transition hover:border-brand">
+          <Card className="h-full transition-all duration-200 hover:border-brand hover:shadow-md">
             <h2 className="text-lg font-semibold">Conteúdo do site</h2>
             <p className="mt-2 text-sm text-muted">
               Edite páginas, publique versões, mantenha FAQ e políticas.
@@ -71,7 +71,7 @@ export default async function AdminPage() {
           </Card>
         </Link>
         <Link href="/admin/configuracoes" className="block">
-          <Card className="h-full transition hover:border-brand">
+          <Card className="h-full transition-all duration-200 hover:border-brand hover:shadow-md">
             <h2 className="text-lg font-semibold">Identidade e contato</h2>
             <p className="mt-2 text-sm text-muted">
               Ajuste nome, cores, WhatsApp e informações exibidas no site.

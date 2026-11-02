@@ -27,6 +27,23 @@ interface LeadContext {
 
 @Injectable()
 export class LeadsService {
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.neighborhood ?? '',
+      l.serviceType,
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
   private readonly logger = new Logger(LeadsService.name);
 
   constructor(

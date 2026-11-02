@@ -7,10 +7,11 @@ import {
   Patch,
   Post,
   Query,
+  Res,
   Req,
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import type { Request } from 'express';
+import type { Request, Response } from 'express';
 import { PERMISSIONS, type AuthUser } from '@vs/shared';
 import { CurrentUser } from '../common/current-user.decorator';
 import { RequirePermissions } from '../common/permissions.decorator';
@@ -70,6 +71,14 @@ export class PublicLeadsController {
 
 @Controller('v1/leads')
 export class AdminLeadsController {
+  @Get('export')
+  @RequirePermissions(PERMISSIONS.LEADS_READ)
+  async export(@CurrentUser() user: AuthUser, @Query() query: ListLeadsQueryDto, @Res() res: Response) {
+    const csv = await this.leads.exportCsv(user.tenantId, query);
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', 'attachment; filename=leads.csv');
+    res.send(csv);
+  }
   constructor(private readonly leads: LeadsService) {}
 
   @Get()

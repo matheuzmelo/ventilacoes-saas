@@ -64,6 +64,9 @@ export default async function LeadsPage({ searchParams }: PageProps) {
           <button type="submit" className="vs-btn vs-btn--primary">
             Filtrar
           </button>
+          <a href={"/api/admin/v1/leads/export?" + params.toString()} className="vs-btn vs-btn--secondary">
+            Exportar CSV
+          </a>
         </form>
       </Card>
 
