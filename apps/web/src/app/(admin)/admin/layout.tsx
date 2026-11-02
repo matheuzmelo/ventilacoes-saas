@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { LogoutButton } from '@/components/logout-button';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { BottomNav } from '@/components/bottom-nav';
 import { getCurrentUser } from '@/lib/api';
 
 export const dynamic = 'force-dynamic';
@@ -58,7 +59,8 @@ export default async function AdminLayout({
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-6 py-10">{children}</main>
+      <main className="mx-auto max-w-6xl px-6 py-10 pb-20 md:pb-10">{children}</main>
+      <BottomNav />
     </div>
   );
 }
