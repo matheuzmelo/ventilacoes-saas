@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.next/
+out/
+coverage/
+.turbo/
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+!.env.test.example
+packages/db/generated/
+*.log
+.DS_Store
+.idea/
+.vscode/
+infra/compose/.env

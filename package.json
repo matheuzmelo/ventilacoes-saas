@@ -1,0 +1,35 @@
+{
+  "name": "mvp-saas-ventilacoes",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SaaS multi-tenant de site e gestão para prestadores de climatização (Fase A)",
+  "packageManager": "pnpm@12.9.1",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm --filter @vs/shared build && pnpm --filter @vs/db build && pnpm --filter @vs/ui build && pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "dev": "pnpm run dev:api & pnpm run dev:web",
+    "dev:api": "pnpm --filter @vs/shared build && pnpm --filter @vs/db build && pnpm --filter @vs/api start:dev",
+    "dev:web": "pnpm --filter @vs/shared build && pnpm --filter @vs/ui build && pnpm --filter @vs/web dev",
+    "db:generate": "pnpm --filter @vs/db run generate",
+    "db:migrate": "pnpm --filter @vs/db run migrate",
+    "db:deploy": "pnpm --filter @vs/db run deploy",
+    "db:seed": "pnpm --filter @vs/db run seed",
+    "db:reset": "pnpm --filter @vs/db run reset",
+    "infra:up": "docker compose -f infra/compose/dev.yml up -d",
+    "infra:down": "docker compose -f infra/compose/dev.yml down",
+    "infra:logs": "docker compose -f infra/compose/dev.yml logs -f"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.5",
+    "eslint": "^9.39.5",
+    "globals": "^17.13.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "@next/eslint-plugin-next": "^15.5.28"
+  }
+}

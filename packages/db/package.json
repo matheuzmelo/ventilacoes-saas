@@ -1,0 +1,40 @@
+{
+  "name": "@vs/db",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Prisma schema, migrations, RLS e acesso multi-tenant ao banco",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "default": "./dist/src/index.js"
+    }
+  },
+  "scripts": {
+    "generate": "prisma generate",
+    "build": "prisma generate && tsc -p tsconfig.json",
+    "typecheck": "prisma generate && tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src prisma",
+    "migrate": "prisma migrate dev",
+    "deploy": "prisma migrate deploy",
+    "seed": "prisma db seed",
+    "reset": "prisma migrate reset --force",
+    "test": "echo \"@vs/db: testes de integracao rodam em @vs/api\""
+  },
+  "dependencies": {
+    "@node-rs/argon2": "^2.0.2",
+    "@prisma/adapter-pg": "^7.10.1",
+    "@prisma/client": "^7.10.1",
+    "@vs/shared": "workspace:*",
+    "dotenv": "^17.4.2",
+    "pg": "^8.23.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/pg": "^8.11.10",
+    "prisma": "^7.10.1",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
+  }
+}

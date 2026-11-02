@@ -1,0 +1,29 @@
+{
+  "name": "@vs/shared",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tipos, permissões, contratos e utilidades compartilhadas",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint src",
+    "test": "tsx --test src/*.test.ts"
+  },
+  "dependencies": {
+    "decimal.js": "^10.4.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3"
+  }
+}
