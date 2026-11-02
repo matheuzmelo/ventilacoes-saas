@@ -5,3 +5,11 @@
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  transition: background-color 250ms ease, color 250ms ease;
+}
+
+* {
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
