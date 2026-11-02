@@ -48,7 +48,7 @@ export default async function SitePage() {
   }
 
   return (
-    <main>
+    <main className="animate-fade-in">
       {site.home ? (
         <CmsBlocks
           blocks={site.home.blocks}

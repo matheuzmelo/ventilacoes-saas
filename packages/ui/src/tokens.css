@@ -1,15 +1,15 @@
 :root {
-  --vs-color-primary: #0b6e99;
-  --vs-color-text: #1f2933;
-  --vs-color-text-muted: #52606d;
+  --vs-color-primary: #0ea5e9;
+  --vs-color-text: #0f172a;
+  --vs-color-text-muted: #475569;
   --vs-color-surface: #ffffff;
-  --vs-color-border: #d9e2ec;
-  --vs-color-success: #1a7f4b;
-  --vs-color-warning: #9a6700;
-  --vs-color-danger: #c62828;
+  --vs-color-border: #e2e8f0;
+  --vs-color-success: #10b981;
+  --vs-color-warning: #f59e0b;
+  --vs-color-danger: #ef4444;
   --vs-font-family: system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", sans-serif;
-  --vs-line-height: 1.5;
+  --vs-line-height: 1.6;
   --vs-space-1: 4px;
   --vs-space-2: 8px;
   --vs-space-3: 12px;
