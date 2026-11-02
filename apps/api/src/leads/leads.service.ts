@@ -1,6 +1,63 @@
-import { Injectable, Logger } from '@nestjs/common';
-import type { Prisma } from '@vs/db';
-import { TenantPrisma } from '@vs/db';
+import { Injectable, Logger 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} from '@nestjs/common';
+import type { Prisma 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} from '@vs/db';
+import { TenantPrisma 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} from '@vs/db';
 import {
   canTransitionLead,
   errors,
@@ -9,20 +66,153 @@ import {
   type LeadListPayload,
   type LeadStatus,
   type LeadSummary,
+
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
 } from '@vs/shared';
-import { AuditService } from '../audit/audit.service';
-import { CmsService } from '../cms/cms.service';
-import { OutboxService } from '../outbox/outbox.service';
-import type { PublicTenant } from '../tenant/tenant.service';
+import { AuditService 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} from '../audit/audit.service';
+import { CmsService 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} from '../cms/cms.service';
+import { OutboxService 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} from '../outbox/outbox.service';
+import type { PublicTenant 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} from '../tenant/tenant.service';
 import type {
   CreateLeadDto,
   ListLeadsQueryDto,
   UpdateLeadStatusDto,
+
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
 } from './dto/leads.dto';
 
 interface LeadContext {
   ip: string;
   userAgent?: string;
+
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
 }
 
 @Injectable()
@@ -34,17 +224,93 @@ export class LeadsService {
     private readonly cms: CmsService,
     private readonly outbox: OutboxService,
     private readonly audit: AuditService,
-  ) {}
+  ) {
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
 
   async createPublic(
     tenant: PublicTenant,
     dto: CreateLeadDto,
     idempotencyKey: string,
     context: LeadContext,
-  ): Promise<{ protocol: string; accepted: true; duplicate: boolean }> {
+  ): Promise<{ protocol: string; accepted: true; duplicate: boolean 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}> {
     if (dto.website && dto.website.trim().length > 0) {
-      return { protocol: 'RECEBIDO', accepted: true, duplicate: false };
-    }
+      return { protocol: 'RECEBIDO', accepted: true, duplicate: false 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+};
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
 
     if (
       !idempotencyKey ||
@@ -52,37 +318,360 @@ export class LeadsService {
       idempotencyKey.length > 128
     ) {
       throw errors.validation('Cabeçalho Idempotency-Key inválido');
-    }
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
 
     const policy = await this.cms.getCurrentLegal(tenant.id, 'privacidade');
     const consentText = policy
-      ? `Li e aceito a ${policy.title} (versão ${policy.version}).`
+      ? `Li e aceito a ${policy.title
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} (versão ${policy.version
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}).`
       : 'Li e aceito a Política de Privacidade.';
 
     const result = await this.tenantPrisma.run(tenant.id, async (tx) => {
       const duplicate = await tx.lead.findFirst({
-        where: { tenantId: tenant.id, idempotencyKey },
-        select: { protocol: true },
-      });
+        where: { tenantId: tenant.id, idempotencyKey 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+        select: { protocol: true 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
       if (duplicate) {
         return {
           protocol: duplicate.protocol,
           duplicate: true,
           outboxCreated: false,
-        };
-      }
+        
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+};
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
 
       const [settings, admin] = await Promise.all([
-        tx.tenantSettings.findUnique({ where: { tenantId: tenant.id } }),
+        tx.tenantSettings.findUnique({ where: { tenantId: tenant.id 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}),
         tx.membership.findFirst({
-          where: { tenantId: tenant.id, role: 'ADMIN', active: true },
-          include: { user: { select: { email: true } } },
-        }),
+          where: { tenantId: tenant.id, role: 'ADMIN', active: true 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+          include: { user: { select: { email: true 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+        
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}),
       ]);
 
-      const counters = await tx.$queryRaw<Array<{ value: number }>>`
+      const counters = await tx.$queryRaw<Array<{ value: number 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}>>`
         INSERT INTO "tenant_counters" ("id", "tenant_id", "key", "value", "updated_at")
-        VALUES (gen_random_uuid(), ${tenant.id}::uuid, 'lead', 1, now())
+        VALUES (gen_random_uuid(), ${tenant.id
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}::uuid, 'lead', 1, now())
         ON CONFLICT ("tenant_id", "key")
         DO UPDATE SET "value" = "tenant_counters"."value" + 1, "updated_at" = now()
         RETURNING "value"
@@ -116,27 +705,236 @@ export class LeadsService {
               text: consentText,
               ip: context.ip,
               userAgent: context.userAgent ?? null,
-            },
-          },
+            
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+          
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
           events: {
             create: {
               tenantId: tenant.id,
               type: 'CREATED',
-              metadata: { source: 'SITE', protocol },
-            },
-          },
-        },
-        select: { id: true, protocol: true },
-      });
+              metadata: { source: 'SITE', protocol 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+            
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+          
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+        
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+        select: { id: true, protocol: true 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
 
       const recipient =
         settings?.replyToEmail ?? settings?.contactEmail ?? admin?.user.email;
       if (!recipient) {
         this.logger.warn(
-          `Tenant ${tenant.id} sem destinatário para notificação de lead`,
+          `Tenant ${tenant.id
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} sem destinatário para notificação de lead`,
         );
-        return { protocol: lead.protocol, duplicate: false, outboxCreated: false };
-      }
+        return { protocol: lead.protocol, duplicate: false, outboxCreated: false 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+};
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
 
       await tx.outbox.create({
         data: {
@@ -144,7 +942,45 @@ export class LeadsService {
           channel: 'EMAIL',
           template: 'LEAD_NOTIFICATION',
           recipient,
-          subject: `Novo lead: ${dto.name} — ${dto.serviceType}`,
+          subject: `Novo lead: ${dto.name
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} — ${dto.serviceType
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}`,
           payload: {
             tenantName: tenant.name,
             leadName: dto.name,
@@ -152,29 +988,238 @@ export class LeadsService {
             city: dto.city,
             leadId: lead.id,
             protocol: lead.protocol,
-          },
-          dedupeKey: `lead:${lead.id}:email`,
-        },
-      });
+          
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
 
-      return { protocol: lead.protocol, duplicate: false, outboxCreated: true };
-    });
+},
+          dedupeKey: `lead:${lead.id
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}:email`,
+        
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
+
+      return { protocol: lead.protocol, duplicate: false, outboxCreated: true 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+};
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
 
     if (result.outboxCreated) {
       void this.outbox.processTenant(tenant.id).catch((error: unknown) => {
         this.logger.error(
-          `Falha ao processar outbox após lead ${result.protocol}`,
+          `Falha ao processar outbox após lead ${result.protocol
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}`,
           error instanceof Error ? error.stack : String(error),
         );
-      });
-    }
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
 
     return {
       protocol: result.protocol,
       accepted: true,
       duplicate: result.duplicate,
-    };
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
   }
+
+};
+  
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
 
   async list(
     tenantId: string,
@@ -184,45 +1229,615 @@ export class LeadsService {
     const cursor = decodeCursor(query.cursor);
     const where: Prisma.LeadWhereInput = {
       tenantId,
-      ...(query.status ? { status: query.status } : {}),
+      ...(query.status ? { status: query.status 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} : {
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}),
       ...(query.from || query.to
         ? {
             createdAt: {
-              ...(query.from ? { gte: new Date(query.from) } : {}),
-              ...(query.to ? { lte: new Date(query.to) } : {}),
-            },
-          }
-        : {}),
+              ...(query.from ? { gte: new Date(query.from) 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} : {
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}),
+              ...(query.to ? { lte: new Date(query.to) 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} : {
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}),
+            
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+          
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
+        : {
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}),
       ...(query.q
         ? {
             OR: [
-              { name: { contains: query.q, mode: 'insensitive' } },
-              { whatsapp: { contains: query.q } },
-              { protocol: { contains: query.q, mode: 'insensitive' } },
-              { city: { contains: query.q, mode: 'insensitive' } },
+              { name: { contains: query.q, mode: 'insensitive' 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+              { whatsapp: { contains: query.q 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+              { protocol: { contains: query.q, mode: 'insensitive' 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+              { city: { contains: query.q, mode: 'insensitive' 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
             ],
-          }
-        : {}),
+          
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
+        : {
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}),
       ...(cursor
         ? {
             AND: [
               {
                 OR: [
-                  { createdAt: { lt: cursor.createdAt } },
-                  { createdAt: cursor.createdAt, id: { lt: cursor.id } },
+                  { createdAt: { lt: cursor.createdAt 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+                  { createdAt: cursor.createdAt, id: { lt: cursor.id 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
                 ],
-              },
+              
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
             ],
-          }
-        : {}),
-    };
+          
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
+        : {
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}),
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+};
 
     const rows = await this.tenantPrisma.run(tenantId, (tx) =>
       tx.lead.findMany({
         where,
-        orderBy: [{ createdAt: 'desc' }, { id: 'desc' }],
+        orderBy: [{ createdAt: 'desc' 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}, { id: 'desc' 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}],
         take: limit + 1,
-      }),
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}),
     );
 
     const hasMore = rows.length > limit;
@@ -233,23 +1848,175 @@ export class LeadsService {
       items: items.map(toSummary),
       nextCursor:
         hasMore && last ? encodeCursor(last.createdAt, last.id) : null,
-    };
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
   }
+
+};
+  
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
 
   async get(tenantId: string, id: string): Promise<LeadDetail> {
     const lead = await this.tenantPrisma.run(tenantId, (tx) =>
       tx.lead.findFirst({
-        where: { id, tenantId },
+        where: { id, tenantId 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
         include: {
           consent: true,
-          events: { orderBy: { createdAt: 'asc' } },
-        },
-      }),
+          events: { orderBy: { createdAt: 'asc' 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+        
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}),
     );
 
     if (!lead) {
       throw errors.notFound('Lead não encontrado');
-    }
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
 
     return {
       ...toSummary(lead),
@@ -261,11 +2028,68 @@ export class LeadsService {
             policyVersion: lead.consent.policyVersion,
             text: lead.consent.text,
             createdAt: lead.consent.createdAt.toISOString(),
-          }
+          
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
         : null,
       events: lead.events.map(toEvent),
-    };
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
   }
+
+};
+  
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
 
   async updateStatus(
     tenantId: string,
@@ -277,29 +2101,219 @@ export class LeadsService {
     const nextStatus = input.status as LeadStatus;
 
     await this.tenantPrisma.run(tenantId, async (tx) => {
-      const lead = await tx.lead.findFirst({ where: { id, tenantId } });
+      const lead = await tx.lead.findFirst({ where: { id, tenantId 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
       if (!lead) {
         throw errors.notFound('Lead não encontrado');
-      }
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
       if (lead.status === nextStatus) {
         throw errors.conflict('O lead já está neste status');
-      }
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
       if (!canTransitionLead(lead.status, nextStatus)) {
         throw errors.conflict(
-          `Transição de ${lead.status} para ${nextStatus} não permitida`,
+          `Transição de ${lead.status
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} para ${nextStatus
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} não permitida`,
         );
-      }
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
 
       await tx.lead.update({
-        where: { id },
+        where: { id 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
         data: {
           status: nextStatus,
           statusUpdatedAt: new Date(),
           firstResponseAt:
             lead.firstResponseAt ??
             (lead.status === 'NEW' ? new Date() : lead.firstResponseAt),
-        },
-      });
+        
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
 
       await tx.leadEvent.create({
         data: {
@@ -310,9 +2324,66 @@ export class LeadsService {
           toStatus: nextStatus,
           note: input.note?.trim() || null,
           actorId,
-        },
-      });
-    });
+        
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
 
     await this.audit.record({
       tenantId,
@@ -321,11 +2392,68 @@ export class LeadsService {
       entity: 'Lead',
       entityId: id,
       correlationId,
-      diff: { status: nextStatus },
-    });
+      diff: { status: nextStatus 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
 
     return this.get(tenantId, id);
+  
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
   }
+
+}
 
   async addNote(
     tenantId: string,
@@ -336,12 +2464,88 @@ export class LeadsService {
   ): Promise<LeadDetail> {
     await this.tenantPrisma.run(tenantId, async (tx) => {
       const lead = await tx.lead.findFirst({
-        where: { id, tenantId },
-        select: { id: true },
-      });
+        where: { id, tenantId 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+        select: { id: true 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
       if (!lead) {
         throw errors.notFound('Lead não encontrado');
-      }
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
 
       await tx.leadEvent.create({
         data: {
@@ -350,9 +2554,66 @@ export class LeadsService {
           type: 'NOTE',
           note: note.trim(),
           actorId,
-        },
-      });
-    });
+        
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+},
+      
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
 
     await this.audit.record({
       tenantId,
@@ -361,14 +2622,128 @@ export class LeadsService {
       entity: 'Lead',
       entityId: id,
       correlationId,
-    });
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+});
 
     return this.get(tenantId, id);
+  
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
   }
+
+}
+
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
 }
 
 function buildProtocol(sequence: number): string {
-  return `LD-${new Date().getUTCFullYear()}-${String(sequence).padStart(5, '0')}`;
+  return `LD-${new Date().getUTCFullYear()
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}-${String(sequence).padStart(5, '0')
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}`;
+
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
 }
 
 function normalizeUtm(
@@ -376,46 +2751,350 @@ function normalizeUtm(
 ): Record<string, string> | null {
   if (!value || typeof value !== 'object' || Array.isArray(value)) {
     return null;
+  
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
   }
 
-  const result: Record<string, string> = {};
+}
+
+  const result: Record<string, string> = {
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+};
   for (const [key, item] of Object.entries(value)) {
     if (typeof item === 'string' && item.trim().length > 0) {
       result[key.slice(0, 40)] = item.trim().slice(0, 240);
-    }
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
   }
+
+}
+  
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
   return Object.keys(result).length > 0 ? result : null;
+
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
 }
 
 function encodeCursor(createdAt: Date, id: string): string {
   return Buffer.from(
-    JSON.stringify({ t: createdAt.toISOString(), id }),
+    JSON.stringify({ t: createdAt.toISOString(), id 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}),
     'utf8',
   ).toString('base64url');
+
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
 }
 
 function decodeCursor(
   raw: string | undefined,
-): { createdAt: Date; id: string } | null {
+): { createdAt: Date; id: string 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} | null {
   if (!raw) {
     return null;
+  
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
   }
+
+}
 
   try {
     const parsed = JSON.parse(
       Buffer.from(raw, 'base64url').toString('utf8'),
-    ) as { t?: unknown; id?: unknown };
+    ) as { t?: unknown; id?: unknown 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+};
     if (typeof parsed.t !== 'string' || typeof parsed.id !== 'string') {
       return null;
-    }
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
     const createdAt = new Date(parsed.t);
     if (Number.isNaN(createdAt.getTime())) {
       return null;
-    }
-    return { createdAt, id: parsed.id };
-  } catch {
-    return null;
+    
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
   }
+
+}
+    return { createdAt, id: parsed.id 
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+};
+  
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+} catch {
+    return null;
+  
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+}
+
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
 }
 
 interface LeadRow {
@@ -435,6 +3114,25 @@ interface LeadRow {
   firstResponseAt: Date | null;
   statusUpdatedAt: Date;
   createdAt: Date;
+
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
 }
 
 function toSummary(lead: LeadRow): LeadSummary {
@@ -455,7 +3153,45 @@ function toSummary(lead: LeadRow): LeadSummary {
     firstResponseAt: lead.firstResponseAt?.toISOString() ?? null,
     statusUpdatedAt: lead.statusUpdatedAt.toISOString(),
     createdAt: lead.createdAt.toISOString(),
-  };
+  
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+};
+
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
 }
 
 function toEvent(event: {
@@ -466,6 +3202,25 @@ function toEvent(event: {
   note: string | null;
   actorId: string | null;
   createdAt: Date;
+
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
 }): LeadEventView {
   return {
     id: event.id,
@@ -475,5 +3230,43 @@ function toEvent(event: {
     note: event.note,
     actorId: event.actorId,
     createdAt: event.createdAt.toISOString(),
-  };
+  
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
+};
+
+  async exportCsv(tenantId: string, query: ListLeadsQueryDto) {
+    const result = await this.list(tenantId, query);
+    const headers = ['Protocolo', 'Nome', 'WhatsApp', 'Cidade', 'Estado', 'Interesse', 'Origem', 'Status', 'Criado em'];
+    const rows = result.items.map((l) => [
+      l.protocol,
+      l.name,
+      l.whatsapp,
+      l.city ?? '',
+      l.state ?? '',
+      l.interest ?? '',
+      l.source ?? '',
+      l.status,
+      new Date(l.createdAt).toISOString(),
+    ]);
+    const csv = [headers.join(','), ...rows.map((r) => r.map((c) => '"' + String(c).replace(/"/g, '""') + '"').join(','))].join('\n');
+    return csv;
+  }
+
 }

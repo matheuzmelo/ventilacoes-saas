@@ -1,4 +1,4 @@
-import {
+import { Response,
   Body,
   Controller,
   Get,
@@ -9,22 +9,22 @@ import {
   Query,
   Req,
 } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { Response, ConfigService } from '@nestjs/config';
 import type { Request } from 'express';
-import { PERMISSIONS, type AuthUser } from '@vs/shared';
-import { CurrentUser } from '../common/current-user.decorator';
-import { RequirePermissions } from '../common/permissions.decorator';
-import { Public } from '../common/public.decorator';
-import { getCorrelationId } from '../common/request-context';
-import { TenantService } from '../tenant/tenant.service';
-import {
+import { Response, PERMISSIONS, type AuthUser } from '@vs/shared';
+import { Response, CurrentUser } from '../common/current-user.decorator';
+import { Response, RequirePermissions } from '../common/permissions.decorator';
+import { Response, Public } from '../common/public.decorator';
+import { Response, getCorrelationId } from '../common/request-context';
+import { Response, TenantService } from '../tenant/tenant.service';
+import { Response,
   CreateLeadDto,
   CreateLeadNoteDto,
   ListLeadsQueryDto,
   UpdateLeadStatusDto,
 } from './dto/leads.dto';
-import { LeadsService } from './leads.service';
-import { RateLimitService } from './rate-limit.service';
+import { Response, LeadsService } from './leads.service';
+import { Response, RateLimitService } from './rate-limit.service';
 
 @Public()
 @Controller('public/v1/leads')
@@ -118,6 +118,16 @@ export class AdminLeadsController {
     );
   }
 }
+
+
+  @Get('export')
+  @RequirePermissions(PERMISSIONS.LEADS_READ)
+  async export(@CurrentUser() user: AuthUser, @Query() query: ListLeadsQueryDto, @Res() res: Response) {
+    const csv = await this.leads.exportCsv(user.tenantId, query);
+    res.setHeader('Content-Type', 'text/csv; charset=utf-8');
+    res.setHeader('Content-Disposition', 'attachment; filename=leads.csv');
+    res.send(csv);
+  }
 
 function clientIp(request: Request): string {
   const forwarded = request.headers['x-forwarded-for'];
